@@ -2,12 +2,43 @@
 
 This folder contains the **Debian/Ubuntu/Kali package** for V Clipboard.
 
-To build and install:
+## Install from GitHub – step by step
 
-```bash
-cd /path/to/vclipboard-deb
-bash build-deb.sh
-sudo apt install -y ./vclipboard_1.0.0_all.deb
-```
+Assuming this folder is the root of your GitHub repo:
 
-For full documentation, features, and usage, see the main README in the source repo (or the one you used to build this package).
+1. **Clone the repo**
+
+   ```bash
+   git clone https://github.com/YOUR_USER/YOUR_REPO.git
+   cd YOUR_REPO/vclipboard-deb
+   ```
+
+2. **Build the .deb**
+
+   ```bash
+   bash build-deb.sh
+   ```
+
+   This creates `vclipboard_1.0.0_all.deb` one level above (the script prints the exact path).
+
+3. **Install the package (recommended)**
+
+   ```bash
+   sudo apt install -y ./vclipboard_1.0.0_all.deb
+   ```
+
+   - Installs `vclipboard` system‑wide.
+   - Sets up autostart so it runs on login.
+   - After install, you can press **Win+V** or **Ctrl+Alt+V** to open the clipboard.
+
+4. **Uninstall / reinstall**
+
+   ```bash
+   # Uninstall
+   sudo dpkg -r vclipboard
+
+   # Reinstall
+   sudo apt install -y ./vclipboard_1.0.0_all.deb
+   ```
+
+For full documentation, features, and usage, see the main `README.md` in the source repo.
