@@ -19,7 +19,7 @@ Assuming this folder is the root of your GitHub repo:
    bash build-deb.sh
    ```
 
-   This creates `vclipboard_1.0.0_all.deb` one level above (the script prints the exact path).
+   This creates `vclipboard_1.0.0_all.deb` **in this same folder**.
 
 3. **Install the package (recommended)**
 
