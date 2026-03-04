@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+# Stop vclipboard on remove so reinstall starts fresh
+case "$1" in
+    remove|upgrade)
+        pkill -x vclipboard 2>/dev/null || true
+        pkill -f "vclipboard.py" 2>/dev/null || true
+        ;;
+esac
+exit 0

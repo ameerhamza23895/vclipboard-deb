@@ -1,0 +1,3 @@
+vclipboard_*.deb
+*.pyc
+__pycache__/

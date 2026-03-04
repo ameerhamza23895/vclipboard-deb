@@ -1,0 +1,5 @@
+#!/usr/bin/env python3
+import runpy
+import os
+os.chdir("/usr/share/vclipboard")
+runpy.run_path("/usr/share/vclipboard/vclipboard.py", run_name="__main__")

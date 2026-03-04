@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=V Clipboard
+Comment=Windows-style clipboard history (Super+V)
+Exec=/usr/bin/vclipboard
+Icon=edit-paste
+Categories=Utility;Accessibility;
+StartupNotify=false

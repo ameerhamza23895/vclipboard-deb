@@ -1,0 +1,10 @@
+Package: vclipboard
+Version: 1.0.0
+Section: utils
+Priority: optional
+Architecture: all
+Depends: python3, python3-pyqt5
+Maintainer: V Clipboard <local@localhost>
+Description: Windows-style clipboard history for Linux
+ Press Super+V (Windows key + V) anywhere to open clipboard history.
+ Automatically saves every copy and runs at login when installed.

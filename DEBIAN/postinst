@@ -1,0 +1,30 @@
+#!/bin/sh
+set -e
+
+# Install pynput so Win+V / Ctrl+Alt+V works
+if ! python3 -c "import pynput" 2>/dev/null; then
+    apt-get install -y python3-pynput 2>/dev/null || true
+    if ! python3 -c "import pynput" 2>/dev/null && command -v pip3 >/dev/null 2>&1; then
+        pip3 install --break-system-packages pynput 2>/dev/null || pip3 install pynput 2>/dev/null || true
+    fi
+fi
+
+# Stop any existing vclipboard so we don't get duplicates
+pkill -x vclipboard 2>/dev/null || true
+pkill -f "vclipboard.py" 2>/dev/null || true
+
+# If installed via sudo from a graphical terminal, start for that user now
+# so they can use it immediately without any manual steps.
+if [ -n "${SUDO_USER}" ] && [ "${SUDO_USER}" != "root" ] && [ -n "${DISPLAY}" ]; then
+    U="${SUDO_USER}"
+    D="${DISPLAY}"
+    A="${XAUTHORITY}"
+    if command -v runuser >/dev/null 2>&1; then
+        runuser -u "$U" -- env DISPLAY="$D" XAUTHORITY="$A" nohup /usr/bin/vclipboard >/dev/null 2>&1 &
+    else
+        su "$U" -c "DISPLAY=$D XAUTHORITY=$A nohup /usr/bin/vclipboard >/dev/null 2>&1 &" 2>/dev/null || true
+    fi
+fi
+
+# Autostart is handled by /etc/xdg/autostart/vclipboard.desktop on every login
+exit 0

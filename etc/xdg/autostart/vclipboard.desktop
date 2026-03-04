@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=V Clipboard
+Comment=Windows-style clipboard history (Super+V). Runs at every login.
+Exec=/usr/bin/vclipboard
+Icon=edit-paste
+Categories=Utility;
+X-GNOME-Autostart-enabled=true
+StartupNotify=false
+Hidden=false
