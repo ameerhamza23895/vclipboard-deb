@@ -31,6 +31,13 @@ Assuming this folder is the root of your GitHub repo:
    - Sets up autostart so it runs on login.
    - After install, you can press **Win+V** or **Ctrl+Alt+V** to open the clipboard.
 
+   If your desktop still does **not** start it automatically, force per‑user autostart with:
+
+   ```bash
+   mkdir -p ~/.config/autostart
+   cp /usr/share/applications/vclipboard.desktop ~/.config/autostart/
+   ```
+
 4. **Uninstall / reinstall**
 
    ```bash
